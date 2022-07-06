@@ -1,0 +1,326 @@
+//*************************************
+// TILDAS-FD-117 University Cape Town CO2iso
+//*************************************
+//
+// make isotope ratio waves
+// LASER # 1
+duplicate i626 del628_L1
+duplicate i626 del636_L1
+del628_L1 = (i628/i626-1)*1000
+del636_L1 = (i636/i626-1)*1000
+// LASER # 2
+duplicate i626_A del627_L2
+duplicate i626_A del628_L2
+del627_L2 = (i627_A/i626_A-1)*1000
+del628_L2 = (i628_A/i626_A-1)*1000
+//
+// prep waves SAMPLE
+ECL_ParseAndCutIndex( 11 )
+// LASER # 1
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:i626, "i626_L1" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:i628, "i628_L1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:i636, "i636_L1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:del628_L1, "del628_L1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:del636_L1, "del636_L1"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:i626_A, "i626_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:i627_A, "i627_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:i628_A, "i628_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:del627_L2, "del627_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime, root:del628_L2, "del628_L2"  , Algorithm="TimeShift:5,0")
+// HOUSEKEEPING
+ECL_ApplyIndex2XY( 11, root:stc_time, root:stc_Tref, "Tref"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:stc_time, root:stc_Traw, "Traw"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:stc_time, root:stc_Praw, "Praw"  , Algorithm="TimeShift:5,0")
+//
+// prep waves REFERENCE
+ECL_ParseAndCutIndex( 13 )
+// LASER # 1
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:i626, "i626_L1", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:i628, "i628_L1", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:i636, "i636_L1", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:del628_L1, "del628_L1", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:del636_L1, "del636_L1", Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:i626_A, "i626_L2", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:i627_A, "i627_L2", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:i628_A, "i628_L2", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:del627_L2, "del627_L2", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime, root:del628_L2, "del628_L2", Algorithm="TimeShift:5,0")
+// HOUSEKEEPING
+ECL_ApplyIndex2XY( 13, root:stc_time, root:stc_Tref, "Tref", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:stc_time, root:stc_Traw, "Traw", Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:stc_time, root:stc_Praw, "Praw", Algorithm="TimeShift:5,0")
+//
+// prep waves ZERO AIR
+ECL_ParseAndCutIndex( 17 )
+// LASER # 1
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:i626, "i626_L1" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:i628, "i628_L1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:i636, "i636_L1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:del628_L1, "del628_L1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:del636_L1, "del636_L1"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:i626_A, "i626_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:i627_A, "i627_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:i628_A, "i628_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:del627_L2, "del627_L2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime, root:del628_L2, "del628_L2"  , Algorithm="TimeShift:5,0")
+// HOUSEKEEPING
+ECL_ApplyIndex2XY( 17, root:stc_time, root:stc_Tref, "Tref"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:stc_time, root:stc_Traw, "Traw"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:stc_time, root:stc_Praw, "Praw"  , Algorithm="TimeShift:5,0")
+//
+//
+// calculate super ratios sample/refernce
+// must undo permil scale of ratios first
+// LASER # 1
+duplicate ECL_11_del628_L1_Avg ECL_SR_628_L1_Avg
+ECL_SR_628_L1_Avg =  ( ( (ECL_11_del628_L1_Avg/1000)+1 ) / ( ( ECL_13_del628_L1_Avg/1000)+1)  - 1 ) * 1000
+duplicate ECL_11_del636_L1_Avg ECL_SR_636_L1_Avg
+ECL_SR_636_L1_Avg =  ( ( (ECL_11_del636_L1_Avg/1000)+1 ) / ( ( ECL_13_del636_L1_Avg/1000)+1)  - 1 ) *1000
+// LASER # 2
+duplicate ECL_11_del627_L2_Avg ECL_SR_627_L2_Avg
+ECL_SR_627_L2_Avg =  ( ( (ECL_11_del627_L2_Avg/1000)+1 ) / ( ( ECL_13_del627_L2_Avg/1000)+1)  - 1 ) * 1000
+duplicate ECL_11_del628_L2_Avg ECL_SR_628_L2_Avg
+ECL_SR_628_L2_Avg =  ( ( (ECL_11_del628_L2_Avg/1000)+1 ) / ( ( ECL_13_del628_L2_Avg/1000)+1)  - 1 ) *1000
+//
+//
+//********************** P L O T T I N G ***************
+//
+// PLOT ISOTOPE RATIOS
+Display ECL_11_del628_L1_Avg vs ECL_11_MidTime
+AppendToGraph ECL_13_del628_L1_Avg vs ECL_13_MidTime
+ModifyGraph mode=3,marker=5,msize=2,rgb=(0,0,65535)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del628_L1 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+Display ECL_11_del636_L1_Avg vs ECL_11_MidTime
+AppendToGraph ECL_13_del636_L1_Avg vs ECL_13_MidTime
+ModifyGraph mode=3,marker=5,msize=2,rgb=(65535,0,0)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del636_L1 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+Display ECL_11_del627_L2_Avg vs ECL_11_MidTime
+AppendToGraph ECL_13_del627_L2_Avg vs ECL_13_MidTime
+ModifyGraph mode=3,marker=5,msize=2,rgb=(2,39321,1)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del627_L2 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+Display ECL_11_del628_L2_Avg vs ECL_11_MidTime
+AppendToGraph ECL_13_del628_L2_Avg vs ECL_13_MidTime
+ModifyGraph mode=3,marker=5,msize=2,rgb=(0,0,65535)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del628_L2 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+//
+// PLOT SUPERRATIOS
+Display ECL_SR_628_L1_Avg vs ECL_11_MidTime
+ModifyGraph tick=2,mirror=1
+ModifyGraph mode=3,marker=5,msize=3,rgb=(0,0,65535)
+Label left "\\Z12\\f01SR_628_L1 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+Display ECL_SR_636_L1_Avg vs ECL_11_MidTime
+ModifyGraph tick=2,mirror=1
+ModifyGraph mode=3,marker=5,msize=3,rgb=(65535,0,0)
+Label left "\\Z12\\f01SR_636_L1 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+Display ECL_SR_628_L2_Avg vs ECL_11_MidTime
+ModifyGraph tick=2,mirror=1
+ModifyGraph mode=3,marker=5,msize=3,rgb=(0,0,65535)
+Label left "\\Z12\\f01SR_628_L2 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+Display ECL_SR_627_L2_Avg vs ECL_11_MidTime
+ModifyGraph tick=2,mirror=1
+ModifyGraph mode=3,marker=5,msize=3,rgb=(2,39321,1)
+Label left "\\Z12\\f01SR_627_L2 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+//
+Display ECL_11_del628_L1_Sdev vs ECL_11_MidTime
+AppendToGraph ECL_13_del628_L1_Sdev vs ECL_13_MidTime
+SetAxis left 0,0.2
+ModifyGraph mode=3,msize=3, marker(ECL_11_del628_L1_Sdev)=5,rgb(ECL_11_del628_L1_Sdev)=(0,0,65535),marker(ECL_13_del628_L1_Sdev)=6,rgb(ECL_13_del628_L1_Sdev)=(0,43690,65535)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01sdev(del628_L1) [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+Legend/C/N=text0/F=0/A=MC
+//
+Display ECL_11_del636_L1_Sdev vs ECL_11_MidTime
+AppendToGraph ECL_13_del636_L1_Sdev vs ECL_13_MidTime
+SetAxis left 0,0.2
+ModifyGraph mode=3,msize=3, marker(ECL_11_del636_L1_Sdev)=5,rgb(ECL_11_del636_L1_Sdev)=(65535,0,0),marker(ECL_13_del636_L1_Sdev)=6,rgb(ECL_13_del636_L1_Sdev)=(65535,21845,0)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01sdev(del636_L1) [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+Legend/C/N=text0/F=0/A=MC
+//
+Display ECL_11_del627_L2_Sdev vs ECL_11_MidTime
+AppendToGraph ECL_13_del627_L2_Sdev vs ECL_13_MidTime
+SetAxis left 0,0.2
+ModifyGraph mode=3,msize=3,marker(ECL_11_del627_L2_Sdev)=5,rgb(ECL_11_del627_L2_Sdev)=(2,39321,1),marker(ECL_13_del627_L2_Sdev)=6,rgb(ECL_13_del627_L2_Sdev)=(26205,52428,1)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01sdev(del627_L2) [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+Legend/C/N=text0/F=0/A=MC
+//
+Display ECL_11_del628_L2_Sdev vs ECL_11_MidTime
+AppendToGraph ECL_13_del628_L2_Sdev vs ECL_13_MidTime
+SetAxis left 0,0.2
+ModifyGraph mode=3,marker(ECL_11_del628_L2_Sdev)=5,rgb(ECL_11_del628_L2_Sdev)=(0,0,65535),marker(ECL_13_del628_L2_Sdev)=6,rgb(ECL_13_del628_L2_Sdev)=(0,43690,65535)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01sdev(del628_L2) [permil]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+Legend/C/N=text0/F=0/A=MC
+//
+//
+// PLOT HOUSEKEEPING
+Display ECL_11_Praw_Avg vs ECL_11_MidTime
+Label left "\\Z12\\f01stc_Praw [Torr]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time";DelayUpdate
+ModifyGraph tick=2,mirror=1
+ModifyGraph mode=3,marker=5,msize=3,rgb=(0,0,0)
+
+Display ECL_11_Traw_Avg vs ECL_11_MidTime
+Label left "\\Z12\\f01stc_Traw [K]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time";DelayUpdate
+ModifyGraph tick=2,mirror=1
+ModifyGraph mode=3,marker=5,msize=3,rgb=(0,0,0)
+//
+//
+// PLOT CONCENTRATION DEPENDENCE DATA
+Display ECL_11_del627_L2_Avg vs ECL_11_i626_L2_Avg
+appendtograph  ECL_13_del627_L2_Avg vs ECL_13_i626_L2_Avg
+ModifyGraph mode=3,msize=3,marker(ECL_11_del627_L2_Avg)=5,rgb(ECL_11_del627_L2_Avg)=(2,39321,1),marker(ECL_13_del627_L2_Avg)=6,rgb(ECL_13_del627_L2_Avg)=(26205,52428,1)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del627_L2 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01i626_L2 [ppb]"
+//
+Display ECL_11_del628_L2_Avg vs ECL_11_i626_L2_Avg
+appendtograph  ECL_13_del628_L2_Avg vs ECL_13_i626_L2_Avg
+ModifyGraph mode=3,msize=3,marker(ECL_11_del628_L2_Avg)=5,rgb(ECL_11_del628_L2_Avg)=(0,0,65535),marker(ECL_13_del628_L2_Avg)=6,rgb(ECL_13_del628_L2_Avg)=(0,43690,65535)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del628_L2 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01i626_L2 [ppb]"
+//
+Display ECL_11_del628_L1_Avg vs ECL_11_i626_L1_Avg
+appendtograph  ECL_13_del628_L1_Avg vs ECL_13_i626_L1_Avg
+ModifyGraph mode=3,msize=3,marker(ECL_11_del628_L1_Avg)=5,rgb(ECL_11_del628_L1_Avg)=(0,0,65535),marker(ECL_13_del628_L1_Avg)=6,rgb(ECL_13_del628_L1_Avg)=(0,43690,65535)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del628_L1 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01i626_L1 [ppb]"
+//
+Display ECL_11_del636_L1_Avg vs ECL_11_i626_L1_Avg
+appendtograph  ECL_13_del636_L1_Avg vs ECL_13_i626_L1_Avg
+ModifyGraph mode=3,msize=3,marker(ECL_11_del636_L1_Avg)=5,rgb(ECL_11_del636_L1_Avg)=(65535,0,0),marker(ECL_13_del636_L1_Avg)=6,rgb(ECL_13_del636_L1_Avg)=(65535,21845,0)
+ModifyGraph tick=2,mirror=1
+Label left "\\Z12\\f01del636_L1 [permil]";DelayUpdate
+Label bottom "\\Z12\\f01i626_L1 [ppb]"
+
+
+// PLOT ZERO AIR DATA
+// LASER 1
+Display ECL_17_i626_L1_Avg vs ECL_17_MidTime
+ModifyGraph mode=3,marker=5,msize=3,rgb=(0,0,0)
+AppendToGraph ECL_17_i628_L1_Avg vs ECL_17_MidTime
+ModifyGraph mode=3,marker=5,msize=3,rgb(ECL_17_i628_L1_Avg)=(0,0,65535)
+AppendToGraph ECL_17_i636_L1_Avg vs ECL_17_MidTime
+ModifyGraph mode=3,marker=5,msize=3
+Legend/C/N=text0/F=0/A=MC
+Label left "\\Z12\\f01i6\\f03NM\\f01 [ppb]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+ModifyGraph tick=2,mirror=1
+SetAxis left 0,100
+// LASER 2
+Display ECL_17_i626_L2_Avg vs ECL_17_MidTime
+ModifyGraph mode=3,marker=5,msize=3,rgb=(0,0,0)
+AppendToGraph ECL_17_i628_L2_Avg vs ECL_17_MidTime
+ModifyGraph mode=3,marker=5,msize=3,rgb(ECL_17_i628_L2_Avg)=(0,0,65535)
+AppendToGraph ECL_17_i627_L2_Avg vs ECL_17_MidTime
+ModifyGraph mode=3,marker=5,msize=3,rgb(ECL_17_i627_L2_Avg)=(2,39321,1)
+Legend/C/N=text0/F=0/A=MC
+Label left "\\Z12\\f01i6\\f03NM\\f01 [ppb]";DelayUpdate
+Label bottom "\\Z12\\f01Date / Time"
+ModifyGraph tick=2,mirror=1
+SetAxis left 0,100
+
+
+
+
+
+
+
+// PLAYBACK # 1 DATA ANALYSIS
+// prep waves SAMPLE
+ECL_ParseAndCutIndex( 11 )
+// PB 1
+// LASER # 1
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB1, root:i626_PB1, "i626_L1_PB1" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB1, root:del628_L1_PB1, "del628_L1_PB1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB1, root:del636_L1_PB1, "del636_L1_PB1"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB1, root:del627_L2_PB1, "del627_L2_PB1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB1, root:del628_L2_PB1, "del628_L2_PB1"  , Algorithm="TimeShift:5,0")
+//
+// prep waves REFERENCE
+ECL_ParseAndCutIndex( 13 )
+// PB 1
+// LASER # 1
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB1, root:i626_PB1, "i626_L1_PB1" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB1, root:del628_L1_PB1, "del628_L1_PB1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB1, root:del636_L1_PB1, "del636_L1_PB1"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB1, root:del627_L2_PB1, "del627_L2_PB1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB1, root:del628_L2_PB1, "del628_L2_PB1"  , Algorithm="TimeShift:5,0")
+//
+// prep waves ZERO AIR
+ECL_ParseAndCutIndex( 17 )
+// PB 1
+// LASER # 1
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB1, root:i626_PB1, "i626_L1_PB1" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB1, root:del628_L1_PB1, "del628_L1_PB1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB1, root:del636_L1_PB1, "del636_L1_PB1"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB1, root:del627_L2_PB1, "del627_L2_PB1"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB1, root:del628_L2_PB1, "del628_L2_PB1"  , Algorithm="TimeShift:5,0")
+
+
+// PLAYBACK # 2 DATA ANALYSIS
+// prep waves SAMPLE
+ECL_ParseAndCutIndex( 11 )
+// PB 2
+// LASER # 1
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB2, root:i626_PB2, "i626_L1_PB2" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB2, root:del628_L1_PB2, "del628_L1_PB2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB2, root:del636_L1_PB2, "del636_L1_PB2"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB2, root:del627_L2_PB2, "del627_L2_PB2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 11, root:str_source_rtime_PB2, root:del628_L2_PB2, "del628_L2_PB2"  , Algorithm="TimeShift:5,0")
+//
+// prep waves REFERENCE
+ECL_ParseAndCutIndex( 13 )
+// PB 2
+// LASER # 1
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB2, root:i626_PB2, "i626_L1_PB2" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB2, root:del628_L1_PB2, "del628_L1_PB2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB2, root:del636_L1_PB2, "del636_L1_PB2"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB2, root:del627_L2_PB2, "del627_L2_PB2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 13, root:str_source_rtime_PB2, root:del628_L2_PB2, "del628_L2_PB2"  , Algorithm="TimeShift:5,0")
+//
+// prep waves ZERO AIR
+ECL_ParseAndCutIndex( 17 )
+// PB 2
+// LASER # 1
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB2, root:i626_PB2, "i626_L1_PB2" , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB2, root:del628_L1_PB2, "del628_L1_PB2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB2, root:del636_L1_PB2, "del636_L1_PB2"  , Algorithm="TimeShift:5,0")
+// LASER # 2
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB2, root:del627_L2_PB2, "del627_L2_PB2"  , Algorithm="TimeShift:5,0")
+ECL_ApplyIndex2XY( 17, root:str_source_rtime_PB2, root:del628_L2_PB2, "del628_L2_PB2"  , Algorithm="TimeShift:5,0")

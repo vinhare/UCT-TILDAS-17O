@@ -1,0 +1,75 @@
+// SCRIPT TO PERFORM SAMPLE vs REFERENCE MEASUREMENTS FROM SAMPLE PORT
+//
+// *********** EVACUATE MPC *****************
+ca1,15			//ECLindex is IDLE
+bdfits1			//suspend spectral fits
+bc2			//wait 2 seconds
+//cf1			//suppress flk4 corrections
+ano13			//open vacuum valve P14
+ano14			//open MPC valve P15
+bc10			//wait 10 seconds until cell is evacuated
+anc14			//close MPC valve P15
+anc13			//close vacuum valve P14
+bc1			//wait 1 seconds
+// *********** FILL MPC AND MEASURE SAMPLE *****************
+ano11			//open vacuum valve P12
+ano14			//open vacuum valve P15
+bc2			//wait 2 seconds until MPC is filled
+anc14			//close vacuum valve P15
+anc11			//close vacuum valve 12
+bc2			//wait 2 seconds
+bdfits0			//activate spectral fits
+//cf0			//enable flk4 corrections
+ca1,11			//ECLindex is SAMPLE
+// *********** EVACUATE AND FILL V2 *****************
+ano13			//open vacuum valve P14
+ano11			//open valve P12
+ano8			//open vacuum valve P9
+bc5			//wait 5 seconds until V2 is evacuated
+anc8			//close vacuum valve P9
+anc11			//close vacuum valve P12
+anc13			//close valve P14
+bc2			//wait 2 sec
+ano10			//open working ref valve P11
+aza1,1,300		//fill intermediate volume to 300 Torr via E2 using p_sensor 1
+bc300			//wait until aza command executed
+anc10			//close working ref valve P11
+bc1			//wait 1 seconds
+bc40			//wait 10sec for sample			ADJUST THIS FOR FILL RATE
+// *********** EVACUATE MPC *****************
+ca1,15			//ECLindex is IDLE
+bdfits1			//suspend spectral fits
+bc2			//wait 2 seconds
+//cf1			//suppress flk4 corrections
+ano13			//open vacuum valve P14
+ano14			//open MPC valve P15
+bc10			//wait 5 seconds until cell is evacuated
+anc14			//close MPC valve P15
+anc13			//close vacuum valve P14
+bc1			//wait 1 seconds
+// *********** FILL MPC AND MEASURE REFERENCE *****************
+ano11			//open vacuum valve P12
+ano14			//open vacuum valve P15
+bc2			//wait 2 seconds until MPC is filled
+anc14			//close vacuum valve P15
+anc11			//close vacuum valve 12
+bc2			//wait 2 seconds
+bdfits0			//activate spectral fits
+//cf0			//enable flk4 corrections
+ca1,13			//ECLindex is REFERENCE
+// *********** EVACUATE AND FILL V2 *****************
+ano13			//open vacuum valve P14
+ano11			//open valve P12
+ano8			//open vacuum valve P9
+bc5			//wait 5 seconds until V2 is evacuated
+anc8			//close vacuum valve P9
+anc11			//close vacuum valve P12
+anc13			//close valve P14
+bc2			//wait 2 sec
+ano10			//open working ref valve P11
+aza1,1,300		//fill intermediate volume to 300 Torr via E2 using p_sensor 1
+bc300			//wait until aza command executed
+anc10			//close working ref valve P11
+bc1			//wait 1 seconds
+bc40			//wait 10sec for sample		ALSO ADJUST THIS FOR FILL RATE
+// *******END OF SCRIPT*****
