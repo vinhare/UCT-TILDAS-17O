@@ -16,4 +16,6 @@ _TDLWintel script for running Sample gas vs Reference gas comparisons, at 45 sec
 
 ECL data analysis.txt\
 _Igor code for analysis of raw data, and conversion to D'17Omeas_
-	
+
+Cite the code here:
+[![DOI](https://zenodo.org/badge/511093350.svg)](https://zenodo.org/badge/latestdoi/511093350)
