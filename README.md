@@ -1,8 +1,8 @@
 # UCT-TILDAS-17O
 LabVIEW and TDLWintel Code for UCT TILDAS system
 
-This contains all code for the automated preparation cart, and TILDAS instrument, reported in:
-**Hare, V.J., Dyroff, C., Nelson, D.D. & Yarian, D. A. High-Precision Triple Oxygen Isotope Analysis of Carbon Dioxide by Tunable Infrared Laser Absorption Spectroscopy, _in review_
+This contains all code for the automated preparation cart, and TILDAS instrument, reported in:\
+**Hare, V.J., Dyroff, C., Nelson, D.D. & Yarian, D. A. High-Precision Triple Oxygen Isotope Analysis of Carbon Dioxide by Tunable Infrared Laser Absorption Spectroscopy, _in review_**
 
 TILDAS Prep Line Valves Sequence - 6June22.vi   
 _A LabVEIW program for the entire automated sequence, either GasBench, break-seals, or atmospheric flasks_\
