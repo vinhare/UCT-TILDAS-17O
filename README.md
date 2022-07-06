@@ -5,7 +5,8 @@ This contains all code for the automated preparation cart, and TILDAS instrument
 **Hare, V.J., Dyroff, C., Nelson, D.D. & Yarian, D. A. High-Precision Triple Oxygen Isotope Analysis of Carbon Dioxide by Tunable Infrared Laser Absorption Spectroscopy, _in review_
 
 TILDAS Prep Line Valves Sequence - 6June22.vi   
-_A LabVEIW program for the entire automated sequence, either GasBench, break-seals, or atmospheric flasks_ 
+_A LabVEIW program for the entire automated sequence, either GasBench, break-seals, or atmospheric flasks_
+_Note: Requires NI DAQ & Driver Installation_
 
 Script_0.xyz                                    
 _TDLWintel script for running Reference gas vs Reference gas comparisons, at 45 second measurement time per aliquot_
